@@ -3,7 +3,7 @@ pipeline {
 		//registry = "varma03/node-frontend"
 		//registryCredential = 'dockerhub'
 		//dockerImage = ''
-		dockerRegistry = 
+		dockerRegistry = 'sankalpreddy/eshoponweb'
 	}
 	
 	//Docker hub repo name
@@ -19,7 +19,9 @@ pipeline {
   stages {
     stage('Testing') {
       steps {
-		    checkout scm
+	      script {
+		      sh "echo ${dockerRegistry}"
+	      }
       }
     }
   } //stages
